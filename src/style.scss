@@ -13,7 +13,6 @@
 }
 nav {
   display: flex;
-  position: static;
   background-color: #212529;
   justify-content: center;
   align-items: center;
@@ -31,7 +30,7 @@ nav {
       align-items: center;
       gap: 5px;
       font-weight: 900;
-      font-size: 1.225rem;
+      font-size: $f-size-p;
       padding: 1rem;
       font-family: $font-diot;
     }
@@ -57,6 +56,7 @@ nav {
     }
   }
 }
+//here begins the styles for the header section
 header {
   background-color: #212529;
   display: flex;
@@ -68,15 +68,17 @@ header {
     margin: 0 auto;
     display: flex;
     gap: 1rem;
-    // flex-wrap: wrap;
     flex-direction: row;
-    // background-color: lime;
     img {
       max-width: 50vw;
       height: auto;
     }
   }
   .header_description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #fff;
     padding: 1rem;
     h1 {
@@ -88,17 +90,230 @@ header {
       font-weight: 600;
       font-family: $font-diot;
       line-height: 1.3rem;
-      font-size: 1.225rem;
+      font-size: $f-size-p;
     }
-    button {
-      padding: 1rem 2.3rem;
-      background-color: #0d6efd;
-      color: #fff;
-      border-radius: 5px;
-      border: none;
-      font-weight: 900;
-      font-size: 1.4rem;
-      margin-left: 1rem;
+  }
+}
+@mixin button_nice {
+  padding: 1rem 2.3rem;
+  background-color: #0d6efd;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+  &:hover {
+    cursor: pointer;
+    background-color: $ltn-color;
+  }
+}
+header .header_description > button {
+  @include button_nice;
+}
+//here ends the styles for the header section
+h1.funny {
+  width: 80vw;
+  border-bottom: 1px solid #dee2e6;
+  margin: 0.5rem auto;
+  text-align: center;
+  padding-block: 1rem;
+  color: #212529;
+}
+//begining of the main section
+main {
+  width: 85vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+  gap: 3rem;
+  justify-content: center;
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 250px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
     }
+    P {
+      width: 200px;
+      text-align: center;
+      padding: 0.5rem;
+      font-weight: 600;
+      font-family: $font-diot;
+      line-height: 1.3rem;
+      font-size: $f-size-p;
+      text-align: center;
+      margin-block-start: 0.4rem;
+    }
+  }
+} //end of main
+//from here starts the styling of section hero
+section.description {
+  h2 {
+    width: 85vw;
+    margin: 0 auto;
+    padding: 1rem;
+    line-height: 2.3rem;
+    font-family: $font-row;
+    letter-spacing: 0.17rem;
+    text-align: center;
+    font-size: $f-size-h2;
+    background-color: $section-bgcolor;
+    color: $h2color;
+    border-radius: 5px;
+  }
+  p {
+    width: 90vw;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 2rem 1rem 0;
+    background-color: #ced4da;
+    width: 85vw;
+    margin: 0 auto;
+    font-family: $font-row;
+    font-size: 1.225rem;
+    position: relative;
+    background-color: $section-bgcolor;
+    color: #6c757d;
+    border-radius: 5px;
+  }
+}
+.hero {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 85vw;
+    background-color: $light-blue;
+    color: $light-white-200;
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  padding: 6rem 0;
+  .call_to_action {
+    h2 {
+      font-size: clamp(1.225rem, 2.5rem, calc(2.5rem + 1vw));
+      padding-block: 1.5rem 1rem;
+    }
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+  button {
+    @include button_nice;
+    padding: 1rem 2.5rem;
+    border: 2px solid $light-white-200;
+    margin: 3rem;
+    margin-left: 4rem;
+    transition: 300ms linear;
+    &:hover {
+      color: black;
+      background-color: #fff;
+    }
+  }
+}
+//here starts the styling for the footer
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bs-body-color;
+  color: $bs-light-grey;
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+//from here i start the media queries
+
+@media (max-width: 1200px) {
+  section.hero {
+    .container {
+      flex-direction: column;
+    }
+  }
+  main {
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card > p {
+      text-align: center;
+      margin-block-start: 0.4rem;
+    }
+  }
+}
+@media (max-width: 900px) {
+  nav .container {
+    flex-direction: column;
+    .text_container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  header .header_container {
+    flex-direction: column;
+    img {
+      min-width: 100%;
+    }
+  }
+  main {
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card > p {
+      text-align: center;
+      margin-block-start: 0.4rem;
+    }
+  }
+}
+@media (max-width: 600px) {
+  header .header_description {
+    h1,
+    p {
+      text-align: center;
+    }
+  }
+  main {
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .card > p {
+      text-align: center;
+      margin-block-start: 0.4rem;
+    }
+  }
+  footer {
+    text-align: center;
+  }
+}
+section.hero {
+  .container {
+    text-align: center;
+  }
+}
+@media (max-width: 350px) {
+  nav {
+    .container {
+      .nav_links li a {
+        display: flex;
+        margin: 0 auto;
+        padding: 0 0.3rem;
+      }
+    }
+  }
+  footer {
+    text-align: center;
   }
 }

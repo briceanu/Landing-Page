@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=GFS+Didot&family=Gloria+Hallelujah&family=Rowdies&display=swap');
+//font-families
 $font-bg: 'Bangers', cursive;
 $font-diot: 'GFS Didot', serif;
 $font-gloria: 'Gloria Hallelujah', cursive;
 $font-row: 'Rowdies', cursive;
+//colors
+$light-white-200: #fff;
+$section-bgcolor: #e9ecef;
+$h2color: #343a40;
+$light-blue: #0d6efd;
+$ltn-color: lighten(
+  $color: #0d6efd,
+  $amount: 5,
+);
+$bs-body-color: #212529;
+$bs-light-grey: #6c757d;
+//font-sizes
+$f-size-p: 1.225rem;
+$f-size-h2: 2rem;
