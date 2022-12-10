@@ -55,7 +55,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'devEnvironment_2',
-      template: './src/template.html',
+      template: './src/index.html',
       filename: 'index.html',
     }),
     new MiniCssExtractPlugin({ filename: 'style[contenthash].css' }),
